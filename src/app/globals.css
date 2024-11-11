@@ -1,0 +1,268 @@
+/* ============================================================================
+ * globals and root variables
+ * ============================================================================ */
+
+:root {
+  --finder-grey: #BFBFBF;
+  --finder-border: #4D5B7C;
+
+  --paragraph-font-size: 14px;
+  --paragraph-font-weight: 400;
+  --smaller-font-size: 12px;
+
+  --header-border-radius: 7px;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Geneva, Verdana, sans-serif;
+
+  margin: 0;
+}
+
+p {
+  font-size: var(--paragraph-font-size);
+  font-weight: var(--paragraph-font-weight);
+}
+
+/* ============================================================================
+ * home view styling
+ * ============================================================================ */
+
+.absolute-wrapper {
+  height: 100%;
+}
+
+.absolute-image-wrapper {
+  position: absolute;
+}
+
+.absolute-image-wrapper .absolute-image {
+  max-height: 100%;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+}
+
+.absolute-image-wrapper#success-image {
+  z-index: 3;
+
+  width: 700px;
+  top: -200px;
+  left: calc(50% - 350px);
+
+  filter: drop-shadow(0 0 0.75rem black);
+}
+
+.appear {
+  opacity: 1;
+}
+
+.fadeOut {
+  opacity:0;
+  width:0;
+  height:0;
+  transition: width 0.75s 0.75s, height 0.75s 0.75s, opacity 0.75s;
+}
+
+.absolute-image-wrapper#flashing-image {
+  z-index: 2;
+
+  width: 100vw;
+  top: -100px;
+}
+
+.home-view-wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.home-view-wrapper input {
+  min-width: 300px;
+}
+
+.home-view-top-row {
+  flex-grow: 1;
+}
+
+.home-view-wrapper .image-container.absolute-decorator {
+  position: absolute;
+}
+
+.home-view-wrapper .image-container.absolute-decorator .image {
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+}
+
+/* Shaking hands */
+.home-view-wrapper .image-container.absolute-decorator.top {
+  width: 400px;
+
+  left: calc(50% - 200px);
+  top: -120px;
+}
+
+/* Line drawing */
+.home-view-wrapper .image-container.absolute-decorator.right {
+  width: 300px;
+
+  right: 0;
+  top: 130px;
+}
+
+/* Knight holding apple */
+.home-view-wrapper .image-container.absolute-decorator.bottom {
+  width: 200px;
+
+  left: calc(50% - 100px);
+  top: 300px;
+}
+
+/* Shield */
+.home-view-wrapper .image-container.absolute-decorator.left {
+  width: 250px;
+
+  left: 5px;
+  top: 130px;
+}
+
+/* ============================================================================
+ * marquee styling
+ * ============================================================================ */
+
+.home-view-wrapper .rotate {
+  width: 1600px;
+  padding: 10px 0px;
+
+  background-color: blue;
+  color: white;
+  font-size: 24px;
+}
+
+.home-view-wrapper .rotate.r-left {
+  z-index: 1;
+  transform-origin: top left;
+  transform: rotate(22.5deg);
+}
+
+.home-view-wrapper .rotate.r-right {
+  transform-origin: top right;
+  /* transform: translateY(-50px) translateX(-150px) rotate(336.5deg); */
+  transform: translateY(-172px) translateX(-150px) rotate(337.5deg);
+}
+
+/* ============================================================================
+ * home view input form styling
+ * ============================================================================ */
+
+.home-view-wrapper .home-view-bottom-row {
+  background-image: repeating-linear-gradient(
+		#fff 0%,
+		#fff 50%,
+		#f0f0f0 50%,
+		#f0f0f0 100%
+	);
+  background-size: 0.5ch 0.5ch;
+  min-height: 150px;
+  border-top: 1px solid var(--finder-grey);
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 10px;
+  z-index: 3;
+}
+
+.home-view-wrapper .home-view-bottom-row .image-container {
+  height: 160px;
+}
+
+.home-view-wrapper .home-view-bottom-row .image-container .image {
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: 100%;
+}
+
+.info-hover:hover {
+  cursor: pointer;
+}
+
+.info-blurb {
+  /* display: none; */
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.1s ease-in-out;
+
+  position: absolute;
+  top: 200px;
+  left: calc(50% - 200px);
+  width: 400px;
+
+  border-radius: var(--header-border-radius) var(--header-border-radius) 0 0;
+  border: 1px solid var(--finder-border);
+}
+
+.info-blurb-header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  height: 20px;
+  width: calc(100% - 4px);
+  padding: 2px;
+
+  background-color: var(--finder-grey);
+  border-radius: var(--header-border-radius) var(--header-border-radius) 0 0;
+  border-bottom: 1px solid var(--finder-border);
+  font-size: var(--smaller-font-size);
+}
+
+.info-blurb-header .ibh-image-container {
+  width: 60px;
+}
+
+.info-blurb-header .ibh-image-container .aqua-buttons {
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+}
+
+.info-blurb-header span {
+  width: calc(100% - 120px);
+  display: flex;
+  justify-content: center;
+}
+
+.info-blurb-header p {
+  margin: auto;
+}
+
+.info-blurb-content {
+  width: calc(100% - 10px);
+  padding: 5px;
+
+  background-image: repeating-linear-gradient(
+		#fff 0%,
+		#fff 50%,
+		#f0f0f0 50%,
+		#f0f0f0 100%
+	);
+  background-size: 0.5ch 0.5ch;
+}
+
+.info-hover:hover + .info-blurb {
+  /* display: block; */
+  visibility: visible;
+  opacity: 1;
+}
